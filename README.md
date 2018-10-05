@@ -2,8 +2,12 @@
 
 This folder contains an interactive tutorial for CloudBees Core on GKE using Google Cloud Shell.
 
+## Setup Steps (public repo)
+The system will automatically checkout a public repo. Start the shell, then launch the tutorial. 
 
-## Setup Steps 
+[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2FMarkEWaite%2Fgke-experiment.git&cloudshell_tutorial=tutorial.md)
+
+## Setup Steps (private repo)
 
 1. Check out this repo  https://github.com/MarkEWaite/gke-experiment
 2. Select the >_ Activate Cloud Shell button.
@@ -13,13 +17,3 @@ This folder contains an interactive tutorial for CloudBees Core on GKE using Goo
 2. Click Open to upload the file into Google Cloud Shell
 2. In Cloud Shell type `teachme tutorial.md`
 3. The tutorial should start on the right of the browser.
-
-## Steps with a public repo
-The system automatically checkout a public repo. Start the shell, then launch the tutorial. 
-I've kept it private for now. 
- 
-
-[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2FMarkEWaite%2Fgke-experiment.git&cloudshell_tutorial=tutorial.md)
-
-
-
