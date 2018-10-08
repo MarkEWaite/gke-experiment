@@ -259,7 +259,7 @@ Before we can finish our installation, we need to customize it for your local en
 ```bash
 cd cloudbees-core_2.138.1.2_kubernetes/
 ```
-2. Replace the sample domain name of `cje.exmaple.com` with your cluster IP address 
+2. Replace the sample domain name of `cje.example.com` with your cluster IP address 
 ```bash
 sed -e s,cje.example.com,$DOMAIN_NAME,g < cloudbees-core.yml > tmp && mv tmp cloudbees-core.yml
 ```
