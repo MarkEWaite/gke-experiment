@@ -10,7 +10,7 @@
 In this guide you will learn to:
 
 * Create a Kubernetes Cluster
-* Install Cloudbees Core on modern platforms
+* Install Cloudbees Core
 * Troubleshoot basic issues with Kubernetes
 
 At the end of this lab you will have a basic understanding Cloudbees Core on modern cloud plaforms.
