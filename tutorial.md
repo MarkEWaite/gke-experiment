@@ -379,11 +379,16 @@ configmap "jenkins-agent" created
 ```bash 
  kubectl rollout status sts cjoc
  ```
- 1. Read the Admin Password 
+ 
+Click the **Continue** button to move to the next step **after the pod is ready**.
+
+## Login to CloudBees Core
+
+1. Read the Admin Password 
  ```bash
  kubectl exec cjoc-0 -- cat /var/jenkins_home/secrets/initialAdminPassword
  ```
- 1. Open CloudBees Core in your browser
+2. Open CloudBees Core in your browser
  ```bash
  echo "Your CloudBees Core URL is http://$DOMAIN_NAME/cjoc"  
 ```
