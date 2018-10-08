@@ -219,7 +219,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=cje
 ```
 Click the **Continue** button to move to the next step.
 
-## Installing Ingress Controller
+## Installing Ingress Controller (1/2)
 CloudBees Core does not support the GKE ingress controller at this point but instead, requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
 
 ### Create the Ingress Controller
@@ -227,6 +227,9 @@ CloudBees Core does not support the GKE ingress controller at this point but ins
 ./helm install --namespace ingress-nginx --name nginx-ingress stable/nginx-ingress \
              --set controller.service.externalTrafficPolicy=Local 
 ```
+Click the **Continue** button to move to the next step.
+
+## Installing Ingress Controller (2/2)
 
 ### Validate the Ingress Controller
 Creating the Ingress Controller results in the creation of the corresponding service, along with its corresponding Load Balancer, both of which will take a few moments. You may then execute the following command to retrieve the external IP address to be used for the CloudBees Core cluster domain name. 
