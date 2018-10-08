@@ -178,7 +178,9 @@ parameters:
 kubectl create -f ssd-storage.yaml
 ``` 
 
-## Create CloudBees Jenkins Enterprise Namespace
+Click the **Continue** button to move to the next step.
+
+## Review Namespaces
 A Kubernetes cluster will instantiate a default namespace when provisioning the cluster to hold the default set of Pods, Services, and Deployments used by the cluster.
 
 Assuming you have a fresh cluster, you can inspect the available namespaces by doing the following:
@@ -196,7 +198,11 @@ kube-public   Active    2h
 kube-system   Active    2h
 ```
 
-We recommend using a namespace just for CloudBees Core. 
+We recommend dedicating a namespace for CloudBees Core. 
+
+Click the **Continue** button to move to the next step.
+
+## Create CloudBees Jenkins Enterprise Namespace
 
 ### Creating namespace
 1. Create the namespace `cje`
