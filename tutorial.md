@@ -96,9 +96,9 @@ kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-a
 Click the **Continue** button to move to the next step.
 
 ## Installing Helm
-[Helm](https://www.helm.sh/) is the package manager for Kubernetes. For this installation of CJE2, you will use Helm to setup your cluster's [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+[Helm](https://www.helm.sh/) is the package manager for Kubernetes. For this installation of CloudBees Core, you will use Helm to configure [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to your cluster.
 
-### Install Helm
+### Download Helm
 1. In Cloud Shell, download and install the Helm binary. Helm has two parts the client command line tool and the server component called Tiller. 
 ```bash
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.6.2-linux-amd64.tar.gz
@@ -110,26 +110,36 @@ tar zxfv helm-v2.6.2-linux-amd64.tar.gz
 ```bash
 cp linux-amd64/helm .
 ```
-3. Ensure your account has `cluster-admin` role in your cluster.
+
+Click the **Continue** button to move to the next step.
+
+### Configure Helm Permissions
+
+1. Ensure your account has `cluster-admin` role in your cluster.
 ```bash
 kubectl create clusterrolebinding user-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
 ```
-4. Create a service account that Tiller, the server side of Helm, will use for deploying your charts.
+2. Create a service account that Tiller, the server side of Helm, will use for deploying your charts.
 ```bash
 kubectl create serviceaccount tiller --namespace kube-system
 ```
-5. Grant the Tiller service account `cluster-admin` role in your cluster.
+3. Grant the Tiller service account `cluster-admin` role in your cluster.
 ```bash
 kubectl create clusterrolebinding tiller-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 ```
-6. Initialize Helm to install Tiller in your cluster:
+
+Click the **Continue** button to move to the next step.
+
+### Initialize Helm
+
+1. Initialize Helm to install Tiller in your cluster:
 ```bash
 ./helm init --service-account=tiller
 ```
 ```bash
 ./helm update
 ```
-7. Ensure that Helm is properly installed:
+2. Ensure that Helm is properly installed:
 ```bash
 ./helm version
 ```
