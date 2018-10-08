@@ -219,7 +219,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=cje
 ```
 Click the **Continue** button to move to the next step.
 
-## Install Ingress Controller (1/2)
+## Install Ingress Controller (1/3)
 CloudBees Core does not support the GKE ingress controller at this point but instead, requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
 
 ### Create the Ingress Controller
@@ -229,7 +229,7 @@ CloudBees Core does not support the GKE ingress controller at this point but ins
 ```
 Click the **Continue** button to move to the next step.
 
-## Install Ingress Controller (2/2)
+## Install Ingress Controller (2/3)
 
 ### Validate the Ingress Controller
 Creating the Ingress Controller results in the creation of the corresponding service, along with its corresponding Load Balancer, both of which will take a few moments. You may then execute the following command to retrieve the external IP address to be used for the CloudBees Core cluster domain name. 
@@ -242,7 +242,11 @@ You should see something like the following:
 NAME                            TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
 nginx-ingress-controller        LoadBalancer   10.3.244.187   35.203.153.152   80:30396/TCP,443:31290/TCP   3m
 ```
-**IMPORTANT:** It may take GKE a few minutes to provision the EXTERNAL-IP. You will need it, before you can move on to the next step.
+**IMPORTANT:** It may take GKE a few minutes to provision the EXTERNAL-IP. You will need it, **before** you move to the next step.
+
+Click the **Continue** button to move to the next step **after the EXTERNAL-IP has been assigned**.
+
+## Install Ingress Controller (2/3)
 
 We need to keep track of the external IP address so we can access our CloudBees Core once our install is done. 
 
@@ -255,7 +259,6 @@ DOMAIN_NAME=jenkins.${CJE_IP}.xip.io
 ```
 
 Click the **Continue** button to move to the next step.
-
 
 ## Get CloudBees Core Installation files
 CloudBees Core installations are configured with YAML files. The CloudBees Core installer provides a cloudbees-core.yml file that is modified for each installation. 
