@@ -113,7 +113,7 @@ cp linux-amd64/helm .
 
 Click the **Continue** button to move to the next step.
 
-### Configure Helm Permissions
+## Configure Helm Permissions
 
 1. Ensure your account has `cluster-admin` role in your cluster.
 ```bash
@@ -130,7 +130,7 @@ kubectl create clusterrolebinding tiller-admin-binding --clusterrole=cluster-adm
 
 Click the **Continue** button to move to the next step.
 
-### Initialize Helm
+## Initialize Helm
 
 1. Initialize Helm to install Tiller in your cluster:
 ```bash
