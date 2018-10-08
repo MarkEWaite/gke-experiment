@@ -67,7 +67,7 @@ Open Cloud Shell by clicking
 
 This tutorial is integrated into the Google Cloud Shell, so it can copy command into your environment.
 
-### Copying a command to the shell.
+### Copy a command to the shell.
 Try running this command now:
 
 ```bash
@@ -78,15 +78,15 @@ it will past the code into the Cloud Shell.
 
 Click the **Continue** button to move to the next step.
 
-## Granting Admin Permissions
+## Grant Admin Permissions
 During the tutorial, you will be using Kubernetes command line tool, `kubectl`. In this step, you setup your cluster in the kubeconfig. Then, you'll give your account  `cluster-admin` permission.
 
-### Adding your cluster to kubeconfig
+### Add your cluster to kubeconfig
 1. Next cluster at the far right is a `Connect` button. Click it.
 1. Click the `Run in Cloud Shell` button.
 1. Click `OK` to close the window.
 
-### Assigning Cluster Admin Permissions
+### Assign Cluster Admin Permissions
 1. Bind your user account to the `cluster-admin` role 
 ```bash
 kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin  --user $(gcloud config get-value account)
@@ -95,7 +95,7 @@ kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-a
 
 Click the **Continue** button to move to the next step.
 
-## Installing Helm (1/3)
+## Install Helm (1/3)
 [Helm](https://www.helm.sh/) is the package manager for Kubernetes. For this installation of CloudBees Core, you will use Helm to configure [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to your cluster.
 
 ### Download Helm
@@ -113,7 +113,7 @@ cp linux-amd64/helm .
 
 Click the **Continue** button to move to the next step.
 
-## Installing Helm (2/3)
+## Install Helm (2/3)
 
 ### Configure Helm Permissions
 
@@ -132,7 +132,7 @@ kubectl create clusterrolebinding tiller-admin-binding --clusterrole=cluster-adm
 
 Click the **Continue** button to move to the next step.
 
-## Installing Helm (3/3)
+## Install Helm (3/3)
 
 ### Initialize Helm
 
@@ -204,7 +204,7 @@ Click the **Continue** button to move to the next step.
 
 ## Create CloudBees Jenkins Enterprise Namespace
 
-### Creating namespace
+### Create namespace
 1. Create the namespace `cje`
 ```bash
 kubectl create namespace cje
@@ -219,7 +219,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=cje
 ```
 Click the **Continue** button to move to the next step.
 
-## Installing Ingress Controller (1/2)
+## Install Ingress Controller (1/2)
 CloudBees Core does not support the GKE ingress controller at this point but instead, requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
 
 ### Create the Ingress Controller
@@ -229,7 +229,7 @@ CloudBees Core does not support the GKE ingress controller at this point but ins
 ```
 Click the **Continue** button to move to the next step.
 
-## Installing Ingress Controller (2/2)
+## Install Ingress Controller (2/2)
 
 ### Validate the Ingress Controller
 Creating the Ingress Controller results in the creation of the corresponding service, along with its corresponding Load Balancer, both of which will take a few moments. You may then execute the following command to retrieve the external IP address to be used for the CloudBees Core cluster domain name. 
@@ -261,7 +261,7 @@ Click the **Continue** button to move to the next step.
 CloudBees Core installations are configured with YAML files. The CloudBees Core installer provides a cloudbees-core.yml file that is modified for each installation. 
 
 ### Download the install files
-1. Get the last installation. 
+1. Get the installer files
 ```bash 
 wget https://downloads.cloudbees.com/cloudbees-core/cloud/latest/cloudbees-core_2.138.1.2_kubernetes.tgz
 ```
@@ -271,7 +271,7 @@ wget https://downloads.cloudbees.com/cloudbees-core/cloud/latest/cloudbees-core_
 ```
 Click the **Continue** button to move to the next step.
 
-## Updating the install for your domain.
+## Update the install for your domain.
 Before we can finish our installation, we need to customize it for your local environment. In this step, we'll update the domain name in the yaml file to point to your cluster.
 
 ### Update the domain name in the cloudbees-core.yaml
@@ -384,7 +384,7 @@ configmap "jenkins-agent" created
 
 Click the **Continue** button to move to the next step.
 
-## Accessing Our CloudBees Core environment 
+## Access CloudBees Core
 At this point, you have a new installation of the CloudBee Core on Modern Plaforms. 
 
 ### Create a new master.
@@ -423,7 +423,7 @@ podTemplate(label: 'kubernetes', containers: [
 6. Click Save
 7. Run new build
 
-## Using the `kubectl` to manage our cluster.
+## Using the `kubectl` to manage the cluster.
 
 In this section, we'll review a few `kubectl` to manage our new cluster. First, let's look at the high-level view of our cluster using `kubectl`
 
