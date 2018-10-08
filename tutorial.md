@@ -298,7 +298,7 @@ For this tutorial, we'll diisable SSL.
 sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ```
 ### Disable SSL redirects
-1. Open `cloudbees-core.yml`
+1. Open `cloudbees-core.yml` in an editor (vi, nano, etc.)
 
 <!--
 <walkthrough-editor-open-file filePath="cloudbees-core_2.138.1.2_kubernetes/cloudbees-core.yml">
