@@ -35,10 +35,7 @@ Click the **Continue** button to move to the next step.
 A cluster consists of at least one cluster master machine and multiple worker
 machines called nodes. You deploy CloudBees Core a Kubernetes cluster.
 
-In this step, you will create your Kubernetes cluster. Use  `{CloudBees Account Name}-cb-core2-test` as your cluster name.
-
-> Your Cloudbees Account name is your email address without the Cloudbees.com.
-> Since my email address is jduska@cloudbees.com, my account is jduska. Therefore, my cluster name is `jduska-cb-core2-test`.
+In this step, you will create your Kubernetes cluster. Use a cluster name that you'll remember.
 
 ### Creating a cluster
 
