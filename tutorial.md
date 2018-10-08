@@ -95,7 +95,7 @@ kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-a
 
 Click the **Continue** button to move to the next step.
 
-## Installing Helm
+## Installing Helm (1/3)
 [Helm](https://www.helm.sh/) is the package manager for Kubernetes. For this installation of CloudBees Core, you will use Helm to configure [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to your cluster.
 
 ### Download Helm
@@ -113,7 +113,9 @@ cp linux-amd64/helm .
 
 Click the **Continue** button to move to the next step.
 
-## Configure Helm Permissions
+## Installing Helm (2/3)
+
+### Configure Helm Permissions
 
 1. Ensure your account has `cluster-admin` role in your cluster.
 ```bash
@@ -130,7 +132,9 @@ kubectl create clusterrolebinding tiller-admin-binding --clusterrole=cluster-adm
 
 Click the **Continue** button to move to the next step.
 
-## Initialize Helm
+## Installing Helm (3/3)
+
+### Initialize Helm
 
 1. Initialize Helm to install Tiller in your cluster:
 ```bash
