@@ -277,14 +277,14 @@ Click the **Continue** button to move to the next step.
 ## Update the install for your domain.
 Before we can finish our installation, we need to customize it for your local environment. In this step, we'll update the domain name in the yaml file to point to your cluster.
 
-### Update the domain name in the cloudbees-core.yaml
+### Update the domain name
 1. Switch to the new `cloudbees-core_2.138.1.2_kubernetes` directory your just created.
 ```bash
 cd cloudbees-core_2.138.1.2_kubernetes/
 ```
 2. Replace the sample domain name of `cje.example.com` with your cluster IP address 
 ```bash
-sed -e s,cje.example.com,$DOMAIN_NAME,g < cloudbees-core.yml > tmp && mv tmp cloudbees-core.yml
+sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
@@ -295,7 +295,7 @@ For this tutorial, we'll turn off SSL.
 ### Disable SSL 
 1. Change all HTTPS references to HTTP
 ```bash 
-sed -e s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g < cloudbees-core.yml > tmp && mv tmp cloudbees-core.yml
+sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ```
 ### Disable SSL redirects
 1. Open `cloudbees-core.yml`
