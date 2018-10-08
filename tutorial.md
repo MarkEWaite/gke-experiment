@@ -317,7 +317,7 @@ sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 Click the **Continue** button to move to the next step.
 
 ## Use SSD persistent disks
-Finally, you'll use the SSD storage class you created earlie in this step. 
+Finally, you'll use the SSD storage class you created earlier. 
 
 To use the 'ssd' storage class for Operations Center, you will need to uncomment and set the storageClassName definition under 'volumeClaimTemplates' to 'ssd' in the cloudbees-core.yml file prior to installation.
 
