@@ -15,7 +15,7 @@ In this guide you will learn to:
 
 At the end of this lab you will have a basic understanding Cloudbees Core on modern cloud plaforms.
 
-Click the **Continue** button to move to the next step.
+Click the **Forward** button to move to the next step.
 
 ## Navigate to Kubernetes Engine
 
