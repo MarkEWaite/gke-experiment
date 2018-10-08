@@ -316,7 +316,7 @@ sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 
 Click the **Continue** button to move to the next step.
 
-## Use SSD persistent disks
+## Use SSD persistent disks (1/2)
 Finally, you'll use the SSD storage class you created earlier. 
 
 To use the 'ssd' storage class for Operations Center, you will need to uncomment and set the storageClassName definition under 'volumeClaimTemplates' to 'ssd' in the cloudbees-core.yml file prior to installation.
@@ -335,6 +335,9 @@ To use the 'ssd' storage class for Operations Center, you will need to uncomment
 
 You can use the file editor to edit the cloudbees-core.yml file.
 
+Click the **Continue** button to move to the next step.
+
+## Use SSD persistent disks (2/2)
 To configure Managed Masters to use SSD disks by default, update the storage class in the cloudbees-core.yml file. Search for the commented-out section
 
 ```
