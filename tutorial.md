@@ -9,7 +9,7 @@
 
 In this guide you will learn to:
 
-* Create a Kubernetes Cluster
+* Create a Kubernetes cluster
 * Install Cloudbees Core
 * Troubleshoot basic issues with Kubernetes
 
