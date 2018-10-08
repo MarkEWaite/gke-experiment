@@ -7,13 +7,13 @@
 
 <walkthrough-tutorial-duration duration="60"></walkthrough-tutorial-duration>
 
-In this guide you will learn:
-* How to create a Kubernetes Cluster in Google Kubernetes Engine (GKE), 
-* How to Install Cloudbees Core on Modern Platforms on GKE, 
-* How to do some basic troubleshooting tasks with Kubernetes.
+In this guide you will learn to:
 
-At the end of this lab you should have a basic understanding Cloudbees Core for Kubernetes.
+* Create a Kubernetes Cluster
+* Install Cloudbees Core on modern platforms
+* Troubleshoot basic issues with Kubernetes
 
+At the end of this lab you will have a basic understanding Cloudbees Core on modern cloud plaforms.
 
 Click the **Continue** button to move to the next step.
 
