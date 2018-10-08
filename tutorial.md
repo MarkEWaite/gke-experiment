@@ -290,7 +290,7 @@ sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 Click the **Continue** button to move to the next step.
 
 ## Disable HTTPS
-For this tutorial, we'll turn off SSL.
+For this tutorial, we'll diisable SSL.
 
 ### Disable SSL 
 1. Change all HTTPS references to HTTP
@@ -305,7 +305,7 @@ sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 </walkthrough-editor-open-file>
 -->
 
-2. Search from `ssl-redirect` 
+2. Search for `ssl-redirect` 
 <!--
 <walkthrough-editor-select-regex filePath="cloudbees-core_2.138.1.2_kubernetes/cloudbees-core.yml" regex="ssl-redirect">
 </walkthrough-editor-select-regex>
