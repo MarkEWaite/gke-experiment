@@ -319,7 +319,7 @@ sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 Click the **Continue** button to move to the next step.
 
 ## Disable HTTPS
-For this tutorial, we'll diisable SSL.
+For this tutorial, we'll disable SSL.
 
 ### Disable SSL 
 1. Change all HTTPS references to HTTP
