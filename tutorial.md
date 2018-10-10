@@ -298,55 +298,25 @@ For this tutorial, we'll diisable SSL.
 sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ```
 ### Disable SSL redirects
-1. Open `cloudbees-core.yml` in an editor (vi, nano, etc.)
-
-<!--
-<walkthrough-editor-open-file filePath="cloudbees-core_2.138.1.2_kubernetes/cloudbees-core.yml">
-</walkthrough-editor-open-file>
--->
-
-2. Search for `ssl-redirect` 
-<!--
-<walkthrough-editor-select-regex filePath="cloudbees-core_2.138.1.2_kubernetes/cloudbees-core.yml" regex="ssl-redirect">
-</walkthrough-editor-select-regex>
--->
-
-3. Change the value from `"true" to "false"
+```bash 
+sed -i s,ssl-redirect="true",ssl-redirect="false",g cloudbees-core.yml
+```
 4. Save your changes.
 
 Click the **Continue** button to move to the next step.
 
 ## Use SSD persistent disks (1/2)
 Finally, you'll use the SSD storage class you created earlier. 
-
-To use the 'ssd' storage class for Operations Center, you will need to uncomment and set the storageClassName definition under 'volumeClaimTemplates' to 'ssd' in the cloudbees-core.yml file prior to installation.
-
+```bash 
+sed -i s,# storageClassName: some-storage-name,\ \ storageClassName: ssd,g cloudbees-core.yml
 ```
- volumeClaimTemplates:
-  - metadata:
-      name: jenkins-home
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 20Gi
-      storageClassName: ssd
-```
-
-You can use the file editor to edit the cloudbees-core.yml file.
 
 Click the **Continue** button to move to the next step.
 
 ## Use SSD persistent disks (2/2)
-To configure Managed Masters to use SSD disks by default, update the storage class in the cloudbees-core.yml file. Search for the commented-out section
-
-```
-# To allocate masters using a non-default storage class, add the following
-# -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=some-storage-class
-```
-Change it so that the storage class is now `ssd`.
-```
--Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=ssd
+To configure Managed Masters to use SSD disks by default, update the storage class in the cloudbees-core.yml file.
+```bash 
+sed -i seq 3 | sed '?a -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=ssd'
 ```
 
 Click the **Continue** button to move to the next step.
