@@ -13,7 +13,7 @@ In this guide you will learn to:
 * Install Cloudbees Core
 * Troubleshoot basic issues with Kubernetes
 
-At the end of this lab you will have a basic understanding Cloudbees Core on modern cloud plaforms.
+At the end of this lab, you will have a basic understanding Cloudbees Core on modern cloud plaforms.
 
 Click the **Forward** or **Continue** button to move to the next step.
 
@@ -23,26 +23,30 @@ First, we need to navigate to the Google Kubernetes Engine in the Google Console
 
 Open the [menu][spotlight-console-menu] on the left side of the console.
 
-**Tip:** Links will highlight menus, buttons, and fields in browser.
+**Tip:** Click on a link in this tutorial to highlight a
+menu, button, or field in your workspace.
+So, if you click on "menu" in the line above,
+it highlights the the icon you click to display the menu.
 
 Then, select the **Kubernetes Engine** section.
-<walkthrough-menu-navigation sectionId="KUBERNETES_SECTION"></walkthrough-menu-navigation>
+<walkthrough-menu-navigation sectionId="KUBERNETES_SECTION"></walkthrough-menu-navigation> (ignore the submenu items that are displayed).
 
-Click the **Continue** button to move to the next step.
+Click the **Continue** button in the lower right of this frame
+to move to the next step in the tutorial.
 
 ## Create a Kubernetes cluster
 
-A cluster consists of at least one cluster master machine and multiple worker
-machines called nodes. You deploy CloudBees Core a Kubernetes cluster.
+A Kubernetes cluster consists of at least one cluster master machine and multiple worker
+machines called nodes. You deploy CloudBees Core in a Kubernetes cluster.
 
-In this step, you will create your Kubernetes cluster. Use a cluster name that you'll remember.
+In this step, you will create your Kubernetes cluster. Use a cluster name that you will remember.
 
 ### Creating a cluster
 
 Click the [Create cluster][spotlight-create-cluster] button.
 
 *   Enter your cluster name into the [name][spotlight-instance-name] field.
-*   In the [zone][spotlight-instance-zone] field select 
+*   In the [zone][spotlight-instance-zone] field, select the zone to use
     for this cluster. For example, select one of the `us-east-1` zones.
 * In `Number of Nodes`, enter 2.
 * In `Machine type` select `2 vCPUs`.
@@ -57,7 +61,7 @@ Click the **Continue** button to move to the next step.
 
 While we wait for your cluster to be build, let's briefly go over what Cloud Shell can do.
 
-Cloud Shell is a personal hosted Virtual Machine which comes pre-loaded with developer tools. This interactive shell environment comes with a built-in code editor, persistent disk storage, and web preview functionality.
+Cloud Shell is a personal hosted Virtual Machine that comes pre-loaded with developer tools. This interactive shell environment comes with a built-in code editor, persistent disk storage, and web preview functionality.
 
 ### Open the Cloud Shell
 
@@ -65,7 +69,7 @@ Open Cloud Shell by clicking
 <walkthrough-cloud-shell-icon></walkthrough-cloud-shell-icon>
 [icon][spotlight-open-devshell] in the navigation bar at the top of the console.
 
-This tutorial is integrated into the Google Cloud Shell, so it can copy command into your environment.
+This tutorial is integrated into the Google Cloud Shell, so it can copy commands into your environment.
 
 ### Copy a command to the shell.
 Try running this command now:
@@ -73,16 +77,21 @@ Try running this command now:
 ```bash
 echo "Hello Cloud Shell"
 ```
-**Tip:** You can click the copy button on the side of the code box, 
-it will past the code into the Cloud Shell.
+**Tip:** You can click the copy button on the side of the code box; 
+it will paste the code into the Cloud Shell.
+Go to your Cloud Shell frame and press the "Enter" key
+to execute the command.
 
 Click the **Continue** button to move to the next step.
 
 ## Grant Admin Permissions
-During the tutorial, you will be using Kubernetes command line tool, `kubectl`. In this step, you setup your cluster in the kubeconfig. Then, you'll give your account  `cluster-admin` permission.
+During the tutorial, you will be using the Kubernetes command line tool, `kubectl`,
+which manages and orchestrates Kubernetes nodes and other resources..
+In this step, you set up your cluster in the kubeconfig then give your account  `cluster-admin` permission.
 
 ### Add your cluster to kubeconfig
-1. Next cluster at the far right is a `Connect` button. Click it.
+1. Click on the `Connect` button at the far-right end
+of the cluster line in the main canvas.
 1. Click the `Run in Cloud Shell` button.
 1. Click `OK` to close the window.
 
@@ -91,7 +100,7 @@ During the tutorial, you will be using Kubernetes command line tool, `kubectl`. 
 ```bash
 kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin  --user $(gcloud config get-value account)
 ```
-  **Note** Cluster-admin (full) permission is only needed during installation, services will run using the created roles with limited privileges.
+  **Note** Cluster-admin (full) permission is only needed during installation. Services will run using the created roles with limited privileges.
 
 Click the **Continue** button to move to the next step.
 
@@ -99,11 +108,11 @@ Click the **Continue** button to move to the next step.
 [Helm](https://www.helm.sh/) is the package manager for Kubernetes. For this installation of CloudBees Core, you will use Helm to configure [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to your cluster.
 
 ### Download Helm
-1. In Cloud Shell, download and install the Helm binary. Helm has two parts the client command line tool and the server component called Tiller. 
+1. In Cloud Shell, download and install the Helm binary. Helm has two parts: the client command line tool and the server component called Tiller. 
 ```bash
 wget https://storage.googleapis.com/kubernetes-helm/helm-v2.6.2-linux-amd64.tar.gz
 ```
-2. Extract the file
+2. Extract the file and copy the command file to your working directory.
 ```bash 
 tar zxfv helm-v2.6.2-linux-amd64.tar.gz 
 ```
@@ -117,7 +126,7 @@ Click the **Continue** button to move to the next step.
 
 ### Configure Helm Permissions
 
-1. Ensure your account has `cluster-admin` role in your cluster.
+1. Ensure that your account has the `cluster-admin` role in your cluster.
 ```bash
 kubectl create clusterrolebinding user-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
 ```
@@ -147,13 +156,13 @@ Click the **Continue** button to move to the next step.
 ```bash
 ./helm version
 ```
-You see output similar to the following. If Helm is correctly installed, v2.6.2 appears for both client and server.
+You should see output similar to the following. If Helm is correctly installed, v2.6.2 appears for both client and server.
 ```
 ./helm version
 Client: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
 Server: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
 ```
-It can take a few minutes for Tiler to install.
+It can take a few minutes for Tiller to install.
 
 Click the **Continue** button to move to the next step.
 
@@ -161,8 +170,12 @@ Click the **Continue** button to move to the next step.
 CloudBees Core requires SSD storage for the `JENKINS_HOME` directory. In this section, we'll create a new ssd storage type.
 
 ### Create a new SSD Storage Class
-1. Create a ssd-storage.yaml using either the web file editor, nano or you favorite file editor
-2. Copy the following contents into the new file (Control-V pastes clipboard content into the cloud shell)
+1. Create an ssd-storage.yaml using either the web file editor, nano or you favorite file editor.  To use vi, type `vi ssd-storage.yaml` at the shell prompt
+2. Copy the following contents into the new file
+(Use Control-A to select the contents of the file,
+then Control-C to copy the selected text to your clipboard.
+Position your cursor in the Cloud Shell;
+use Control-V to paste the clipboard content into the file
 ```
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -172,7 +185,8 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-ssd
 ```
-3. Save the file.
+3. Save the file.  (If you are using vi, press the ESC button
+to close the edit session, then press Control-zz to save the file and exit.
 4. Create the new storage class in your cluster
 ```bash 
 kubectl create -f ssd-storage.yaml
@@ -181,7 +195,8 @@ kubectl create -f ssd-storage.yaml
 Click the **Continue** button to move to the next step.
 
 ## Review Namespaces
-A Kubernetes cluster will instantiate a default namespace when provisioning the cluster to hold the default set of Pods, Services, and Deployments used by the cluster.
+A Kubernetes cluster instantiates a default namespace when provisioning the cluster.
+This namespace holds the default set of Pods, Services, and Deployments used by the cluster.
 
 Assuming you have a fresh cluster, you can inspect the available namespaces by doing the following:
 
@@ -198,7 +213,8 @@ kube-public   Active    2h
 kube-system   Active    2h
 ```
 
-We recommend dedicating a namespace for CloudBees Core. 
+We will dedicate a namespace to CloudBees Core;
+this is the recommended practice. 
 
 Click the **Continue** button to move to the next step.
 
@@ -220,7 +236,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=cje
 Click the **Continue** button to move to the next step.
 
 ## Install Ingress Controller (1/3)
-CloudBees Core does not support the GKE ingress controller at this point but instead, requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
+CloudBees Core does not currently support the GKE ingress controller. Instead, it requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
 
 ### Create the Ingress Controller
 ```bash
@@ -232,7 +248,7 @@ Click the **Continue** button to move to the next step.
 ## Install Ingress Controller (2/3)
 
 ### Validate the Ingress Controller
-Creating the Ingress Controller results in the creation of the corresponding service, along with its corresponding Load Balancer, both of which will take a few moments. You may then execute the following command to retrieve the external IP address to be used for the CloudBees Core cluster domain name. 
+Creating the Ingress Controller results in the creation of the corresponding service, along with its corresponding Load Balancer, both of which will take a few moments. You can then execute the following command to retrieve the external IP address to be used for the CloudBees Core cluster domain name. 
 ```bash
 kubectl get services -n ingress-nginx
 ```
@@ -242,13 +258,14 @@ You should see something like the following:
 NAME                            TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
 nginx-ingress-controller        LoadBalancer   10.3.244.187   35.203.153.152   80:30396/TCP,443:31290/TCP   3m
 ```
-**IMPORTANT:** It may take GKE a few minutes to provision the EXTERNAL-IP. You will need it, **before** you move to the next step.
+**IMPORTANT:** It may take GKE a few minutes to provision the EXTERNAL-IP. You will need it **before** you move to the next step.
 
-Click the **Continue** button to move to the next step **after the EXTERNAL-IP has been assigned**.
+Click the **Continue** button to move to the next step (but only **after the EXTERNAL-IP has been assigned**).
 
 ## Install Ingress Controller (2/3)
 
 We need to keep track of the external IP address so we can access our CloudBees Core once our install is done. 
+To do this, we will capture it into an environment variable that we can use later.
 
 1. Capture the external IP address of our Ingress Controller.
 ```bash
@@ -256,6 +273,18 @@ CJE_IP=$( kubectl -n ingress-nginx get svc nginx-ingress-controller -o jsonpath=
 ```
 ```bash
 DOMAIN_NAME=jenkins.${CJE_IP}.xip.io
+```
+
+2. Confirm that this worked:
+
+```bash
+echo $DOMAIN_NAME
+```
+
+Your output should look like:
+
+```
+jenkins.35.204.153.152.xip.io
 ```
 
 Click the **Continue** button to move to the next step.
@@ -290,7 +319,7 @@ sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 Click the **Continue** button to move to the next step.
 
 ## Disable HTTPS
-For this tutorial, we'll diisable SSL.
+For this tutorial, we'll disable SSL.
 
 ### Disable SSL 
 1. Change all HTTPS references to HTTP
@@ -396,21 +425,21 @@ Click the **Continue** button to move to the next step **after the pod is ready*
 Click the **Continue** button to move to the next step.
 
 ## Access CloudBees Core
-At this point, you have a new installation of the CloudBee Core on Modern Plaforms. 
+At this point, you have a new installation of the CloudBee Core on modern plaforms. 
 
 ### Create a new master.
-Let's create a new manage master for our cluster. 
+Let's create a new managed master for our cluster. 
 
-1. In your new CloudBees Core installation, open Operation Center.
+1. In your new CloudBees Core installation, open the Operation Center.
 2. Click the [New Master...] button. 
 3. Name the new master `develop`
-4. Accept the default setting and click [Save] button.
+4. Accept the default settings and click the [Save] button.
 
 ### Create a new pipeline job
 Let's create a new pipeline job on our develop manage master.
 
 1. In your new master, Click [New Item] button
-2. Enter name for your new example pipeline build.
+2. Enter a name for your new example pipeline build.
 3. Click the menu New Item[Pipeline] option in the list.
 4. Click Ok button
 5. Scroll down to the Pipeline script section. Paste the following script into the text box.
@@ -436,21 +465,21 @@ podTemplate(label: 'kubernetes', containers: [
 
 ## Using the `kubectl` to manage the cluster.
 
-In this section, we'll review a few `kubectl` to manage our new cluster. First, let's look at the high-level view of our cluster using `kubectl`
+In this section, we'll review a few `kubectl` commands to manage our new cluster. First, let's look at the high-level view of our cluster using `kubectl`
 
 ### Setting the context
-`Kubeclt` uses context to manage the different enviornments that a user may work with 
+`Kubeclt` uses context to manage the different environments that a user may work with 
 ```bash
 kubectl config set-context $(kubectl config current-context) --namespace=cje 
 ```
-Let's look at all the important objects in our cluster. This done with the `kubectl get` command.
+Let's look at all the important objects in our cluster. This is done with the `kubectl get` command.
 
 ```bash
 kubectl get pod,statefulset,svc,ingress,pvc,pv -o wide
 ``` 
 
-### Reviewing Logs on Cluster Nodes.
-Let's review the logs on operation center noe.
+### Reviewing Logs on Cluster Nodes
+Let's review the logs on the Operations Center node.
 1. `kubectl log` provides access to logs on nodes. 
 
 ```bash
@@ -459,12 +488,12 @@ kubectl logs -f cjoc-0
 Click the **Continue** button to move to the next step.
 
 ## Logging into a node
-Sometime you have no choice, but to log into a node to troubleshoot a problem.
+Sometimes you must log into a node to troubleshoot a problem.
 
 Let's log into our master.
 
 ### Get list of pods
-First, we'll need the name of pod we want to access.
+First, we need the name of the pod we want to access.
 We'll use the get pods command to list all pods
 
 ```bash
