@@ -78,7 +78,7 @@ Try running this command now:
 echo "Hello Cloud Shell"
 ```
 **Tip:** You can click the copy button on the side of the code box; 
-it will past the code into the Cloud Shell.
+it will paste the code into the Cloud Shell.
 Go to your Cloud Shell frame and press the "Enter" key
 to execute the command.
 
@@ -170,7 +170,7 @@ Click the **Continue** button to move to the next step.
 CloudBees Core requires SSD storage for the `JENKINS_HOME` directory. In this section, we'll create a new ssd storage type.
 
 ### Create a new SSD Storage Class
-1. Create a ssd-storage.yaml using either the web file editor, nano or you favorite file editor.  To use vi, type `vi ssd-storage.yaml` at the shell prompt
+1. Create an ssd-storage.yaml using either the web file editor, nano or you favorite file editor.  To use vi, type `vi ssd-storage.yaml` at the shell prompt
 2. Copy the following contents into the new file
 (Use Control-A to select the contents of the file,
 then Control-C to copy the selected text to your clipboard.
@@ -185,7 +185,7 @@ provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-ssd
 ```
-3. Save the file.  (If you are using vi, press the exc button
+3. Save the file.  (If you are using vi, press the ESC button
 to close the edit session, then press Control-zz to save the file and exit.
 4. Create the new storage class in your cluster
 ```bash 
@@ -236,7 +236,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=cje
 Click the **Continue** button to move to the next step.
 
 ## Install Ingress Controller (1/3)
-CloudBees Core does not currentlysupport the GKE ingress controller. Instead, it requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
+CloudBees Core does not currently support the GKE ingress controller. Instead, it requires the use of the NGINX Ingress Controller. This section walks through the installation using Helm.
 
 ### Create the Ingress Controller
 ```bash
