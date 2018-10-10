@@ -299,7 +299,7 @@ sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ```
 ### Disable SSL redirects
 ```bash 
-sed -i s,ssl-redirect="true",ssl-redirect="false",g cloudbees-core.yml
+sed -i s/ssl-redirect=\ \"true\"/ssl-redirect=\ \"false\"/g cloudbees-core.yml
 ```
 4. Save your changes.
 
@@ -308,7 +308,7 @@ Click the **Continue** button to move to the next step.
 ## Use SSD persistent disks (1/2)
 Finally, you'll use the SSD storage class you created earlier. 
 ```bash 
-sed -i s,# storageClassName: some-storage-name,\ \ storageClassName: ssd,g cloudbees-core.yml
+sed -i s,#\ storageClassName:\ some-storage-class,\ \ storageClassName:\ ssd,g cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
@@ -316,7 +316,7 @@ Click the **Continue** button to move to the next step.
 ## Use SSD persistent disks (2/2)
 To configure Managed Masters to use SSD disks by default, update the storage class in the cloudbees-core.yml file.
 ```bash 
-sed -i seq 3 | sed '?a -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=ssd'
+sed -i '113a \ \ \ \ \ \ \ \ \ \ \ \ -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=ssd' cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
