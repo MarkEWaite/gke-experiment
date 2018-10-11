@@ -1,5 +1,16 @@
 pipeline {
   agent any
+  agent {
+    kubernetes {
+      label 'mypodtemplate-maven-3.5.4'
+      containerTemplate {
+        name 'maven'
+        image 'maven:3.5.4-jdk-8-alpine'
+        ttyEnabled true
+        command 'cat'
+      }
+    }
+  }
   stages {
     stage('Hello') {
       parallel {
@@ -19,12 +30,8 @@ pipeline {
       steps {
         ws(dir: 'simple-java-maven-app') {
           git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
-        }
-
-        withMaven(publisherStrategy: 'IMPLICIT') {
           sh 'mvn --version'
         }
-
       }
     }
   }
