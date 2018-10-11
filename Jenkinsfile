@@ -39,7 +39,9 @@ pipeline {
               git(url: 'https://github.com/MarkEWaite/jenkins-demo', branch: 'master')
               sh 'java -version'
               sh 'mvn --version'
-              sh 'mvn clean install'
+              dir(dir: 'sample_maven') {
+                sh 'mvn clean install'
+              }
             }
           }
         }
