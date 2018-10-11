@@ -15,5 +15,13 @@ pipeline {
         }
       }
     }
+    stage('checkout') {
+      steps {
+        ws(dir: 'simple-java-maven-app') {
+          git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
+        }
+
+      }
+    }
   }
 }
