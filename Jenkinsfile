@@ -41,9 +41,6 @@ pipeline {
             ws(dir: 'jenkins-demo/sample_maven') {
               sh 'mvn clean install'
             }
-            ws(dir: 'jenkins-demo/sample_ant') {
-              sh 'ant'
-            }
           }
         }
       }
