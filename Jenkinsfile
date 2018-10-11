@@ -38,16 +38,22 @@ pipeline {
             ws(dir: 'jenkins-demo') {
               git(url: 'https://github.com/MarkEWaite/jenkins-demo', branch: 'master')
               sh 'java -version'
+              sh 'ant'
             }
             ws(dir: 'jenkins-demo/sample_maven') {
-              sh 'echo current directory contents && pwd && ls'
-              sh 'echo parent directory contents && ls ..'
-              sh 'mvn --version'
               sh 'mvn clean install'
+            }
+            ws(dir: 'jenkins-demo/sample_ant') {
+              sh 'ant'
             }
           }
         }
       }
+    }
+  }
+  post {
+    always {
+      junit '**/*.xml'
     }
   }
 }
