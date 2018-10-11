@@ -27,8 +27,6 @@ pipeline {
           steps {
             ws(dir: 'simple-java-maven-app') {
               git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
-              sh 'java -version'
-              sh 'mvn --version'
               sh 'mvn clean install'
             }
           }
@@ -49,6 +47,9 @@ pipeline {
   post {
     always { 
       ws(dir: 'jenkins-demo') {
+        junit '**/*.xml'
+      }
+      ws(dir: 'simple-java-maven-app') {
         junit '**/*.xml'
       }
     }
