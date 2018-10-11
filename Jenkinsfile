@@ -15,7 +15,7 @@ pipeline {
       parallel {
         stage('Hello 1') {
           steps {
-            sh 'echo "hello shell world"'
+            sh 'echo "hello shell world from `pwd`'
           }
         }
         stage('Hello 2') {
