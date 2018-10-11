@@ -1,5 +1,4 @@
 pipeline {
-  agent any
   agent {
     kubernetes {
       label 'mypodtemplate-maven-3.5.4'
