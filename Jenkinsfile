@@ -13,16 +13,6 @@ pipeline {
   stages {
     stage('Work') {
       parallel {
-        stage('Hello 1') {
-          steps {
-            sh 'echo "hello shell world from `pwd`"'
-          }
-        }
-        stage('Hello 2') {
-          steps {
-            echo 'hello pipeline world'
-          }
-        }
         stage('simple-java-maven-app') {
           steps {
             ws(dir: 'simple-java-maven-app') {
