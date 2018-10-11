@@ -31,6 +31,7 @@ pipeline {
           git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
           sh 'java --version'
           sh 'mvn --version'
+          sh 'mvn clean install'
         }
       }
     }
