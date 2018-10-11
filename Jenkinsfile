@@ -15,10 +15,14 @@ pipeline {
         }
       }
     }
-    stage('checkout') {
+    stage('Maven') {
       steps {
         ws(dir: 'simple-java-maven-app') {
           git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
+        }
+
+        withMaven(publisherStrategy: 'IMPLICIT') {
+          sh 'mvn --version'
         }
 
       }
