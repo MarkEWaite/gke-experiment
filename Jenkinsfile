@@ -23,6 +23,16 @@ pipeline {
             echo 'hello pipeline world'
           }
         }
+        stage('simple-java-maven-app') {
+          steps {
+            ws(dir: 'simple-java-maven-app') {
+              git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
+              sh 'java -version'
+              sh 'mvn --version'
+              sh 'mvn clean install'
+            }
+          }
+        }
         stage('jenkins-demo') {
           steps {
             ws(dir: 'jenkins-demo') {
