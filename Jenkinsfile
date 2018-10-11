@@ -33,6 +33,16 @@ pipeline {
             }
           }
         }
+        stage('jenkins-demo') {
+          steps {
+            ws(dir: 'jenkins-demo') {
+              git(url: 'https://github.com/MarkEWaite/jenkins-demo', branch: 'master')
+              sh 'java -version'
+              sh 'mvn --version'
+              sh 'mvn clean install'
+            }
+          }
+        }
       }
     }
   }
