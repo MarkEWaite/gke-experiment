@@ -37,8 +37,6 @@ pipeline {
           steps {
             ws(dir: 'jenkins-demo') {
               git(url: 'https://github.com/MarkEWaite/jenkins-demo', branch: 'master')
-              sh 'java -version'
-              sh 'ant'
             }
             ws(dir: 'jenkins-demo/sample_maven') {
               sh 'mvn clean install'
