@@ -51,10 +51,8 @@ pipeline {
   }
   post {
     always { 
-      steps {
-        ws(dir: 'jenkins-demo') {
-          junit '**/*.xml'
-        }
+      ws(dir: 'jenkins-demo') {
+        junit '**/*.xml'
       }
     }
   }
