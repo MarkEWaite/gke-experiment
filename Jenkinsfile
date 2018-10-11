@@ -11,7 +11,7 @@ pipeline {
     }
   }
   stages {
-    stage('Hello') {
+    stage('Work') {
       parallel {
         stage('Hello 1') {
           steps {
@@ -23,15 +23,15 @@ pipeline {
             echo 'hello pipeline world'
           }
         }
-      }
-    }
-    stage('Maven') {
-      steps {
-        ws(dir: 'simple-java-maven-app') {
-          git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
-          sh 'java -version'
-          sh 'mvn --version'
-          sh 'mvn clean install'
+        stage('Maven') {
+          steps {
+            ws(dir: 'simple-java-maven-app') {
+              git(url: 'https://github.com/jenkins-docs/simple-java-maven-app', branch: 'master')
+              sh 'java -version'
+              sh 'mvn --version'
+              sh 'mvn clean install'
+            }
+          }
         }
       }
     }
