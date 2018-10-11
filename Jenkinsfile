@@ -21,12 +21,25 @@ pipeline {
             }
           }
         }
+        stage('jenkins-demo') {
+          steps {
+            ws(dir: 'jenkins-demo') {
+              git(url: 'https://github.com/MarkEWaite/jenkins-demo', branch: 'master')
+            }
+            ws(dir: 'jenkins-demo/sample_maven') {
+              sh 'mvn clean install'
+            }
+          }
+        }
       }
     }
   }
   post {
     always { 
       ws(dir: 'simple-java-maven-app') {
+        junit '**/*.xml'
+      }
+      ws(dir: 'jenkins-demo') {
         junit '**/*.xml'
       }
     }
