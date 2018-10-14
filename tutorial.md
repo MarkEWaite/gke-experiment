@@ -295,11 +295,11 @@ CloudBees Core installations are configured with YAML files. The CloudBees Core 
 ### Download the install files
 1. Get the installer files
 ```bash 
-wget https://downloads.cloudbees.com/cloudbees-core/cloud/latest/cloudbees-core_2.138.1.2_kubernetes.tgz
+wget https://downloads.cloudbees.com/cloudbees-core/cloud/2.138.2.2/cloudbees-core_2.138.2.2_kubernetes.tgz
 ```
 2. Unpack the installer 
 ``` bash
- tar xzvf cloudbees-core_2.138.1.2_kubernetes.tgz
+ tar xzvf cloudbees-core_2.138.2.2_kubernetes.tgz
 ```
 Click the **Continue** button to move to the next step.
 
@@ -307,9 +307,9 @@ Click the **Continue** button to move to the next step.
 Before we can finish our installation, we need to customize it for your local environment. In this step, we'll update the domain name in the yaml file to point to your cluster.
 
 ### Update the domain name
-1. Switch to the new `cloudbees-core_2.138.1.2_kubernetes` directory your just created.
+1. Switch to the new `cloudbees-core_2.138.2.2_kubernetes` directory your just created.
 ```bash
-cd cloudbees-core_2.138.1.2_kubernetes/
+cd cloudbees-core_2.138.2.2_kubernetes/
 ```
 2. Replace the sample domain name of `cje.example.com` with your cluster IP address 
 ```bash
@@ -330,7 +330,7 @@ sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 1. Open `cloudbees-core.yml` in an editor (vi, nano, etc.)
 
 <!--
-<walkthrough-editor-open-file filePath="cloudbees-core_2.138.1.2_kubernetes/cloudbees-core.yml">
+<walkthrough-editor-open-file filePath="cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml">
 </walkthrough-editor-open-file>
 -->
 
