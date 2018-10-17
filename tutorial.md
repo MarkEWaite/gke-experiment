@@ -150,7 +150,7 @@ Click the **Continue** button to move to the next step.
 ./helm init --service-account=tiller
 ```
 ```bash
-./helm update
+./helm repo update
 ```
 2. Ensure that Helm is properly installed:
 ```bash
