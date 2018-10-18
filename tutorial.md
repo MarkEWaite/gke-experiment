@@ -287,44 +287,31 @@ wget https://downloads.cloudbees.com/cloudbees-core/cloud/2.138.2.2/cloudbees-co
 Click the **Continue** button to move to the next step.
 
 ## Update the install for your domain.
-Before we can finish our installation, we need to customize it for your local environment. In this step, we'll update the domain name in the yaml file to point to your cluster.
+Before we can finish our installation, we need to customize it for your cluster.
+
+### Copy YAML
+1. Copy the installer file to current directory for editing
+```bash
+cp cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml cloudbees-core.yml
+```
 
 ### Update the domain name
-1. Switch to the new `cloudbees-core_2.138.2.2_kubernetes` directory your just created.
-```bash
-cd cloudbees-core_2.138.2.2_kubernetes/
-```
 2. Replace the sample domain name of `cje.example.com` with your cluster IP address
 ```bash
-sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
+sed s,cje.example.com,$DOMAIN_NAME,g < cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml > cloudbees-core.yml
 ```
 
-Click the **Continue** button to move to the next step.
-
-## Disable HTTPS
-For this tutorial, we'll disable SSL.
-
-### Disable SSL
-1. Change all HTTPS references to HTTP
+### Use HTTP, not HTTPS
+3. Change all HTTPS references to HTTP
 ```bash
 sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ```
+
 ### Disable SSL redirects
-1. Open `cloudbees-core.yml` in an editor (vi, nano, etc.)
-
-<!--
-<walkthrough-editor-open-file filePath="cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml">
-</walkthrough-editor-open-file>
--->
-
-2. Search for `ssl-redirect`
-<!--
-<walkthrough-editor-select-regex filePath="cloudbees-core_2.138.1.2_kubernetes/cloudbees-core.yml" regex="ssl-redirect">
-</walkthrough-editor-select-regex>
--->
-
-3. Change the value from `"true" to "false"
-4. Save your changes.
+4. Disable SSL redirect (since this is not using HTTPS)
+```bash
+sed -i 's/\(ssl-redirect.*\)true/\1false/g' cloudbees-core.yml
+```
 
 Click the **Continue** button to move to the next step.
 
