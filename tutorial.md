@@ -337,16 +337,7 @@ Click the **Continue** button to move to the next step.
 ## Use SSD persistent disks (2/2)
 1. Configure Masters to use SSD disks
 ```bash
-c=com.cloudbees
-```
-```bash
-m=masterprovisioning
-```
-```bash
-k=kubernetes
-```
-```bash
-km=KubernetesMasterProvisioning
+c=com.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning
 ```
 ```bash
 f=fsGroup
@@ -355,22 +346,13 @@ f=fsGroup
 n=storageClassName
 ```
 ```bash
-cc=$c.$m.$k.$km
-```
-```bash
 p='      '
 ```
 ```bash
-sed -i "/$cc.$f/a/$p$p-D$cc.$n=ssd/" cloudbees-core.yml
+sed -i "/$c.$f/aZ$p$p-D$c.$n=ssd" cloudbees-core.yml
 ```
-
-```
-# To allocate masters using a non-default storage class, add the following
-# -Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=some-storage-class
-```
-Change it so that the storage class is now `ssd`.
-```
--Dcom.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning.storageClassName=ssd
+```bash
+sed -i s/^Z//g cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
