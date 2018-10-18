@@ -170,24 +170,7 @@ Click the **Continue** button to move to the next step.
 CloudBees Core requires SSD storage for the `JENKINS_HOME` directory. In this section, we'll create a new ssd storage type.
 
 ### Create a new SSD Storage Class
-1. Create an ssd-storage.yaml using either the web file editor, nano or you favorite file editor.  To use vi, type `vi ssd-storage.yaml` at the shell prompt
-2. Copy the following contents into the new file
-(Use Control-A to select the contents of the file,
-then Control-C to copy the selected text to your clipboard.
-Position your cursor in the Cloud Shell;
-use Control-V to paste the clipboard content into the file
-```
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: ssd
-provisioner: kubernetes.io/gce-pd
-parameters:
-  type: pd-ssd
-```
-3. Save the file.  (If you are using vi, press the ESC button
-to close the edit session, then press Control-zz to save the file and exit.
-4. Create the new storage class in your cluster
+1. Create the new storage class in your cluster
 ```bash 
 kubectl create -f ssd-storage.yaml
 ``` 
