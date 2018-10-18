@@ -201,20 +201,20 @@ this is the recommended practice.
 
 Click the **Continue** button to move to the next step.
 
-## Create CloudBees Jenkins Enterprise Namespace
+## Create CloudBees Core Namespace
 
 ### Create namespace
-1. Create the namespace `cje`
+1. Create the namespace `cloudbees-core`
 ```bash
-kubectl create namespace cje
+kubectl create namespace cloudbees-core
 ```
 1. Attach a label to that namespace
 ```bash
-kubectl label namespace cje name=cje
+kubectl label namespace cloudbees-core name=cloudbees-core
 ```
-1. Make namespace cje the default namespace for the kubectl context
+1. Make namespace cloudbees-core the default namespace for the kubectl context
 ```bash
-kubectl config set-context $(kubectl config current-context) --namespace=cje
+kubectl config set-context $(kubectl config current-context) --namespace=cloudbees-core
 ```
 Click the **Continue** button to move to the next step.
 
@@ -252,10 +252,10 @@ To do this, we will capture it into an environment variable that we can use late
 
 1. Capture the external IP address of our Ingress Controller.
 ```bash
-CJE_IP=$( kubectl -n ingress-nginx get svc nginx-ingress-controller -o jsonpath={".status.loadBalancer.ingress[0].ip}") 
+CLOUDBEES_CORE_IP=$( kubectl -n ingress-nginx get svc nginx-ingress-controller -o jsonpath={".status.loadBalancer.ingress[0].ip}") 
 ```
 ```bash
-DOMAIN_NAME=jenkins.${CJE_IP}.xip.io
+DOMAIN_NAME=jenkins.${CLOUDBEES_CORE_IP}.xip.io
 ```
 
 2. Confirm that this worked:
@@ -453,7 +453,7 @@ In this section, we'll review a few `kubectl` commands to manage our new cluster
 ### Setting the context
 `Kubeclt` uses context to manage the different environments that a user may work with 
 ```bash
-kubectl config set-context $(kubectl config current-context) --namespace=cje 
+kubectl config set-context $(kubectl config current-context) --namespace=cloudbees-core 
 ```
 Let's look at all the important objects in our cluster. This is done with the `kubectl get` command.
 
