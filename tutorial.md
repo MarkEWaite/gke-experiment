@@ -321,7 +321,9 @@ Click the **Continue** button to move to the next step.
 ## Use SSD persistent disks (1/2)
 1. Use the SSD storage class created earlier.
 ```bash
-sed -i 's/. storageClassName: some-storage-class/storageClassName: ssd/g' cloudbees-core.yml
+cn=storageClassName
+val=some-storage-class
+sed -i "s/..$cn:.$val/$cne: ssd/g" cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
