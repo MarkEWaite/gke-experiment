@@ -322,7 +322,11 @@ Click the **Continue** button to move to the next step.
 1. Use the SSD storage class created earlier.
 ```bash
 cn=storageClassName
+```
+```bash
 val=some-storage-class
+```
+```bash
 sed -i "s/..$cn:.$val/$cne: ssd/g" cloudbees-core.yml
 ```
 
