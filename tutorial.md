@@ -335,7 +335,34 @@ sed -i "s/..$n:.$v/$n: ssd/g" cloudbees-core.yml
 Click the **Continue** button to move to the next step.
 
 ## Use SSD persistent disks (2/2)
-To configure Managed Masters to use SSD disks by default, update the storage class in the cloudbees-core.yml file. Search for the commented-out section
+1. Configure Masters to use SSD disks
+```bash
+c=com.cloudbees
+```
+```bash
+m=masterprovisioning
+```
+```bash
+k=kubernetes
+```
+```bash
+km=KubernetesMasterProvisioning
+```
+```bash
+f=fsGroup
+```
+```bash
+n=storageClassName
+```
+```bash
+cc=$c.$m.$k.$km
+```
+```bash
+p='      '
+```
+```bash
+sed -i "/$cc.$f/a/$p$p-D$cc.$n=ssd/" cloudbees-core.yml
+```
 
 ```
 # To allocate masters using a non-default storage class, add the following
