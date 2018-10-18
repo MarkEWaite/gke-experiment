@@ -115,9 +115,7 @@ wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar
 ```
 2. Extract the file
 ```bash
-tar zxfv helm-v2.11.0-linux-amd64.tar.gz
-```
-cp linux-amd64/helm .
+tar xzvf helm-v2.11.0-linux-amd64.tar.gz
 ```
 
 Click the **Continue** button to move to the next step.
@@ -166,7 +164,7 @@ It can take a few minutes for Tiller to install.
 
 Click the **Continue** button to move to the next step.
 
-##  Create SSD Storage Class
+## Create SSD Storage Class
 CloudBees Core requires SSD storage for the `JENKINS_HOME` directory. In this section, we'll create a new ssd storage type.
 
 ### Create a new SSD Storage Class
