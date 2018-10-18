@@ -157,8 +157,8 @@ linux-amd64/helm version
 You should see output similar to the following. If Helm is correctly installed, v2.11.0 appears for both client and server.
 ```
 linux-amd64/helm version
-Client: &version.Version{SemVer:"v2.11.0", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
-Server: &version.Version{SemVer:"v2.11.0", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
+Client: &version.Version{SemVer:"v2.11.0", GitCommit:"2e55dbe1fdb5fdb96b75ff144a339489417b146b", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.11.0", GitCommit:"2e55dbe1fdb5fdb96b75ff144a339489417b146b", GitTreeState:"clean"}
 ```
 It can take a few minutes for Tiller to install.
 
