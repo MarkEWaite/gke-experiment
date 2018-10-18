@@ -170,7 +170,7 @@ CloudBees Core requires SSD storage for the `JENKINS_HOME` directory. In this se
 ### Create a new SSD Storage Class
 1. Create the new storage class in your cluster
 ```bash
-kubectl create -f ssd-storage.yaml
+kubectl create -f gke-experiment/ssd-storage.yaml
 ```
 
 Click the **Continue** button to move to the next step.
