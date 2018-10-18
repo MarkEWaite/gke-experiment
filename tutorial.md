@@ -97,7 +97,9 @@ of the cluster line in the main canvas.
 ### Assign Cluster Admin Permissions
 1. Bind your user account to the `cluster-admin` role
 ```bash
-kubectl create clusterrolebinding cluster-admin-binding  --clusterrole cluster-admin  --user $(gcloud config get-value account)
+kubectl create clusterrolebinding cluster-admin-binding \
+    --clusterrole cluster-admin  \
+    --user $(gcloud config get-value account)
 ```
   **Note** Cluster-admin (full) permission is only needed during installation. Services will run using the created roles with limited privileges.
 
