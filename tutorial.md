@@ -319,23 +319,10 @@ sed -i 's/\(ssl-redirect.*\)true/\1false/g' cloudbees-core.yml
 Click the **Continue** button to move to the next step.
 
 ## Use SSD persistent disks (1/2)
-Finally, you'll use the SSD storage class you created earlier.
-
-To use the 'ssd' storage class for Operations Center, you will need to uncomment and set the storageClassName definition under 'volumeClaimTemplates' to 'ssd' in the cloudbees-core.yml file prior to installation.
-
+1. Use the SSD storage class created earlier.
+```bash
+sed -i 's/. storageClassName: some-storage-class/storageClassName: ssd/g' cloudbees-core.yml
 ```
- volumeClaimTemplates:
-  - metadata:
-      name: jenkins-home
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 20Gi
-      storageClassName: ssd
-```
-
-You can use the file editor to edit the cloudbees-core.yml file.
 
 Click the **Continue** button to move to the next step.
 
