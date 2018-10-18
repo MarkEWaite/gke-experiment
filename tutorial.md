@@ -109,11 +109,11 @@ Click the **Continue** button to move to the next step.
 ### Download Helm
 1. In Cloud Shell, download and install the Helm binary. Helm has two parts: the client command line tool and the server component called Tiller.
 ```bash
-wget https://storage.googleapis.com/kubernetes-helm/helm-v2.6.2-linux-amd64.tar.gz
+wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
 ```
 2. Extract the file
 ```bash
-tar zxfv helm-v2.6.2-linux-amd64.tar.gz
+tar zxfv helm-v2.11.0-linux-amd64.tar.gz
 ```
 cp linux-amd64/helm .
 ```
@@ -154,11 +154,11 @@ linux-amd64/helm repo update
 ```bash
 linux-amd64/helm version
 ```
-You should see output similar to the following. If Helm is correctly installed, v2.6.2 appears for both client and server.
+You should see output similar to the following. If Helm is correctly installed, v2.11.0 appears for both client and server.
 ```
 linux-amd64/helm version
-Client: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
-Server: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
+Client: &version.Version{SemVer:"v2.11.0", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.11.0", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
 ```
 It can take a few minutes for Tiller to install.
 
