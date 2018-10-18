@@ -298,7 +298,7 @@ cp cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml cloudbees-core.yml
 ### Update the domain name
 2. Replace the sample domain name of `cje.example.com` with your cluster IP address
 ```bash
-sed s,cje.example.com,$DOMAIN_NAME,g < cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml > cloudbees-core.yml
+sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 ```
 
 ### Use HTTP, not HTTPS
