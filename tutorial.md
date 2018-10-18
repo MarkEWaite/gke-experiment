@@ -301,8 +301,10 @@ cp cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml cloudbees-core.yml
 sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 ```
 
+Click the **Continue** button to move to the next step.
+
 ## Adapt to your cluster (2/3)
-Before we can finish our installation, we need to customize it for your cluster.
+Modify the SSL and HTTPS settings for this cluster.
 
 ### Use HTTP, not HTTPS
 1. Change all HTTPS references to HTTP
