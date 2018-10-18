@@ -286,7 +286,7 @@ wget https://downloads.cloudbees.com/cloudbees-core/cloud/2.138.2.2/cloudbees-co
 ```
 Click the **Continue** button to move to the next step.
 
-## Update the install for your domain.
+## Adapt to your cluster (1/3)
 Before we can finish our installation, we need to customize it for your cluster.
 
 ### Copy YAML
@@ -301,14 +301,17 @@ cp cloudbees-core_2.138.2.2_kubernetes/cloudbees-core.yml cloudbees-core.yml
 sed -i s,cje.example.com,$DOMAIN_NAME,g cloudbees-core.yml
 ```
 
+## Adapt to your cluster (2/3)
+Before we can finish our installation, we need to customize it for your cluster.
+
 ### Use HTTP, not HTTPS
-3. Change all HTTPS references to HTTP
+1. Change all HTTPS references to HTTP
 ```bash
 sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ```
 
 ### Disable SSL redirects
-4. Disable SSL redirect (since this is not using HTTPS)
+2. Disable SSL redirect (since this is not using HTTPS)
 ```bash
 sed -i 's/\(ssl-redirect.*\)true/\1false/g' cloudbees-core.yml
 ```
@@ -353,7 +356,7 @@ Click the **Continue** button to move to the next step.
 ## Run the installer
 You can now install CloudBees Core.
 
-### Install CloudBee Core on your cluster
+### Install CloudBees Core on your cluster
 1. Run the `kubectl` command to deploy CloudBees Core
 ```bash
 kubectl apply -f cloudbees-core.yml
