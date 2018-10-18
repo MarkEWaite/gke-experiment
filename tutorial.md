@@ -327,7 +327,7 @@ cn=storageClassName
 val=some-storage-class
 ```
 ```bash
-sed -i "s/..$cn:.$val/$cne: ssd/g" cloudbees-core.yml
+sed -i "s/..$cn:.$val/$cn: ssd/g" cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
