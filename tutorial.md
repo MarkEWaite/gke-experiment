@@ -313,7 +313,7 @@ sed -i s,https://$DOMAIN_NAME,http://$DOMAIN_NAME,g cloudbees-core.yml
 ### Disable SSL redirects
 2. Disable SSL redirect (since this is not using HTTPS)
 ```bash
-sed -i 's/\(ssl-redirect.*\)true/\1false/g' cloudbees-core.yml
+sed -i '/ssl-redirect:/s/true/false/g' cloudbees-core.yml
 ```
 
 Click the **Continue** button to move to the next step.
