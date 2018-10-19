@@ -402,7 +402,7 @@ Click the **Continue** button to move to the next step **after the pod is ready*
 Click the **Continue** button to move to the next step.
 
 ## Access CloudBees Core
-At this point, you have a new installation of the CloudBee Core on modern plaforms.
+At this point, you have a new installation of the CloudBees Core on modern plaforms.
 
 ### Create a new master.
 Let's create a new managed master for our cluster.
